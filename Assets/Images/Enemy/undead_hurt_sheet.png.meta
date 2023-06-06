@@ -1,0 +1,330 @@
+fileFormatVersion: 2
+guid: 9e1397e03b0616548a67f8341267312a
+timeCreated: 1539350464
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: undead_hurt_sheet_0
+    21300002: undead_hurt_sheet_1
+    21300004: undead_hurt_sheet_2
+    21300006: undead_hurt_sheet_3
+    21300008: undead_hurt_sheet_4
+    21300010: undead_hurt_sheet_5
+    21300012: undead_hurt_sheet_6
+    21300014: undead_hurt_sheet_7
+    21300016: undead_hurt_sheet_8
+    21300018: undead_hurt_sheet_9
+    21300020: undead_hurt_sheet_10
+    21300022: undead_hurt_sheet_11
+    21300024: undead_hurt_sheet_12
+    21300026: undead_hurt_sheet_13
+    21300028: undead_hurt_sheet_14
+    21300030: undead_hurt_sheet_15
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 16
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 8192
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 8192
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: undead_hurt_sheet_0
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 8
+        width: 30
+        height: 26
+      alignment: 9
+      pivot: {x: 0.6958506, y: 0.5196507}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undead_hurt_sheet_1
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 8
+        width: 30
+        height: 26
+      alignment: 9
+      pivot: {x: 0.6958506, y: 0.5196507}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undead_hurt_sheet_2
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 8
+        width: 30
+        height: 26
+      alignment: 9
+      pivot: {x: 0.6958506, y: 0.5196507}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undead_hurt_sheet_3
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 8
+        width: 30
+        height: 26
+      alignment: 9
+      pivot: {x: 0.6958506, y: 0.5196507}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undead_hurt_sheet_4
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 8
+        width: 27
+        height: 26
+      alignment: 9
+      pivot: {x: 0.6958506, y: 0.5196507}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undead_hurt_sheet_5
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 8
+        width: 30
+        height: 26
+      alignment: 9
+      pivot: {x: 0.6958506, y: 0.5196507}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undead_hurt_sheet_6
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 8
+        width: 34
+        height: 26
+      alignment: 9
+      pivot: {x: 0.6958506, y: 0.5196507}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undead_hurt_sheet_7
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 8
+        width: 34
+        height: 26
+      alignment: 9
+      pivot: {x: 0.6958506, y: 0.5196507}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undead_hurt_sheet_8
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 7
+        width: 34
+        height: 26
+      alignment: 9
+      pivot: {x: 0.69298416, y: 0.56464314}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undead_hurt_sheet_9
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 7
+        width: 32
+        height: 26
+      alignment: 9
+      pivot: {x: 0.6988964, y: 0.56464314}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undead_hurt_sheet_10
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 7
+        width: 32
+        height: 26
+      alignment: 9
+      pivot: {x: 0.6988964, y: 0.56464314}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undead_hurt_sheet_11
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 4
+        width: 29
+        height: 24
+      alignment: 9
+      pivot: {x: 0.7006373, y: 0.67810297}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undead_hurt_sheet_12
+      rect:
+        serializedVersion: 2
+        x: 795
+        y: 5
+        width: 29
+        height: 24
+      alignment: 9
+      pivot: {x: 0.6972762, y: 0.665227}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undead_hurt_sheet_13
+      rect:
+        serializedVersion: 2
+        x: 847
+        y: 6
+        width: 29
+        height: 27
+      alignment: 9
+      pivot: {x: 0.6982443, y: 0.5479229}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undead_hurt_sheet_14
+      rect:
+        serializedVersion: 2
+        x: 902
+        y: 8
+        width: 30
+        height: 26
+      alignment: 9
+      pivot: {x: 0.6958506, y: 0.5196507}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undead_hurt_sheet_15
+      rect:
+        serializedVersion: 2
+        x: 958
+        y: 8
+        width: 30
+        height: 26
+      alignment: 9
+      pivot: {x: 0.6958506, y: 0.5196507}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
