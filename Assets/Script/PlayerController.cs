@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour {
 		anim = GetComponent<Animator> ();
 		rb2d = GetComponent<Rigidbody2D> ();
 		bc = bc.GetComponent<BoxCollider2D> ();
+		attackcol = AttackCheck.GetComponent<BoxCollider2D> ();
 		source = GetComponent<AudioSource> ();
 		slidecol.enabled = false;
 		attackcheck.SetActive (false);
@@ -64,9 +65,9 @@ public class PlayerController : MonoBehaviour {
 				AttackSword ();
 			source.PlayOneShot (audioattack);
 			}
-		/*if (Input.GetKeyDown (KeyCode.J)) {
+		if (Input.GetKeyDown (KeyCode.J)) {
 				AttackHand ();
-			}*/
+			}
 		timeAttack -= Time.deltaTime;
 	}
 	void FixedUpdate()
@@ -160,20 +161,21 @@ public class PlayerController : MonoBehaviour {
 		bc.enabled = true;
 		isSlide = false;
 		}
-	/*void AttackHand(){
-		if (tocaChao && AnimaCombo == 0) {
+	void AttackHand(){
+		if (tocaChao ) {
 			anim.SetTrigger ("Punch1");
-			AnimaCombo = 1;
-		} else if (tocaChao && AnimaCombo == 1) {
-			anim.SetTrigger ("Punch2");
-			AnimaCombo = 2;
-		} else if (tocaChao && AnimaCombo == 2) {
-			anim.SetTrigger ("Punch3");
-		}
-	}*/
+			attackcheck.SetActive (true);
+			attackcol.size = new Vector3 (0.5211939f, 0.2611685f, 0);
+			attackcol.offset = new Vector3 (0.1179317f, -0.2626958f, 0);
+			StartCoroutine ("stopAttack");
+			timeAttack = 0.4f;
+		} 
+	}
 	void AttackSword (){
 		if (tocaChao && AnimaCombo == 0) {
 			attackcheck.SetActive (true);
+			attackcol.size = new Vector3 (0.6114954f, 1.213438f, 0);
+			attackcol.offset = new Vector3 (0.1630824f, 0.0328362f, 0);
 			anim.SetTrigger ("Sword1");
 			StartCoroutine ("stopAttack");
 			timeAttack = 0.7f;
@@ -186,7 +188,7 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 	IEnumerator stopAttack(){
-	 yield return new WaitForSeconds(1f);
+	 yield return new WaitForSeconds(0.5f);
 		attackcheck.SetActive (false);
 	}
 	 void  OnTriggerEnter2D (Collider2D other){
