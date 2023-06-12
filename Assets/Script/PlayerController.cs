@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour {
 	public LayerMask Ground, EnemyLayer;
 	[HideInInspector] public bool touchWall = false, tocaChao = false, viradoDireita = true;
 	public float ForcaPulo = 1000f,  Velocidade, slideSpeed = 5f, timeAttack;
-	public bool jump,  SideCheck, isSlide = false, isAlive = true;
+	public bool jump = true,  SideCheck, isSlide = false, isAlive = true;
 	public BoxCollider2D bc, slidecol,attackcol;
 	public WaitForSeconds attacktime;
 	public int AnimaCombo = 0, Health;
@@ -53,8 +53,8 @@ public class PlayerController : MonoBehaviour {
 		touchWall = Physics2D.Linecast (transform.position, WallCheck.position, 1 << LayerMask.NameToLayer ("Ground"));
 		Fall ();
 		if (Input.GetKeyDown("space")) {
-			bc.size = new Vector3 (0.4929347f, 0.8221698f, 0);
-			bc.offset = new Vector3 (0.1226404f, 0.01533556f, 0);
+			//bc.size = new Vector3 (0.5059768f, 0.8221698f, 0);
+			//bc.offset = new Vector3 (0.1161193f, 0.01533556f, 0);
 			Jump ();
 			source.PlayOneShot (audiojump);
 		}
@@ -65,8 +65,11 @@ public class PlayerController : MonoBehaviour {
 				AttackSword ();
 			source.PlayOneShot (audioattack);
 			}
-		if (Input.GetKeyDown (KeyCode.J)) {
+		if (Input.GetKeyDown (KeyCode.J)&& timeAttack <= 0) {
 				AttackHand ();
+			}
+		if (Input.GetKeyDown (KeyCode.K)&& timeAttack <= 0) {
+				AttackKick ();
 			}
 		timeAttack -= Time.deltaTime;
 	}
@@ -91,12 +94,12 @@ public class PlayerController : MonoBehaviour {
 		//Animations
 		if (translationX != 0 && tocaChao)  {
 			anim.SetTrigger ("Run");
-		   bc.size = new Vector3 (0.7746387f, 1.127496f, 0);
+		    bc.size = new Vector3 (0.7746387f, 1.127496f, 0);
 			bc.offset = new Vector3 (0.1723526f, -0.1373274f, 0);
-		} else {
+		} else if(jump == false) {
 			anim.SetTrigger ("Stand Hand");
-			bc.size = new Vector3 (0.7540007f,1.168771f, 0);
-			bc.offset = new Vector3 (-0.07013941f, -0.1166899f, 0);
+			bc.size = new Vector3 (0.6692266f,1.129645f, 0);
+			bc.offset = new Vector3 (-0.0277524f, -0.1362531f, 0);
 		}
 		//Player direction
 		if (translationX > 0 && !viradoDireita || translationX < 0 && viradoDireita) {
@@ -119,8 +122,10 @@ public class PlayerController : MonoBehaviour {
 			anim.SetBool ("Wall Slide", false);
 			bc.size = new Vector3 (0.4929347f, 0.9783585f, 0);
 			bc.offset = new Vector3 (0.1226404f, -0.0627588f, 0);
+			jump = false;
 		}	
 		if (tocaChao) {
+			
 			anim.SetBool ("Fall", false);
 			anim.SetBool ("Wall Slide", false);
 		}
@@ -128,6 +133,9 @@ public class PlayerController : MonoBehaviour {
 	void Jump(){
 		if (tocaChao && rb2d.velocity.y >= 0 ) {
 			rb2d.AddForce (new Vector2 (0f, ForcaPulo));
+			jump = true;
+			bc.size = new Vector3 (0.5059768f, 0.8221698f, 0);
+			bc.offset = new Vector3 (0.1161193f, 0.01533556f, 0);
 			anim.SetTrigger ("Jump");
 			anim.SetBool ("Wall Slide", false);
 		}
@@ -144,6 +152,7 @@ public class PlayerController : MonoBehaviour {
 		if (!tocaChao) {
 			anim.SetLayerWeight (1, 1);
 		} else {
+			
 			anim.SetLayerWeight (1, 0);
 		}
 	}
@@ -171,6 +180,16 @@ public class PlayerController : MonoBehaviour {
 			timeAttack = 0.4f;
 		} 
 	}
+	void AttackKick(){
+		if (tocaChao ) {
+			anim.SetTrigger ("Kick1");
+			attackcheck.SetActive (true);
+			attackcol.size = new Vector3 (0.4566334f,0.3068449f, 0);
+			attackcol.offset = new Vector3 (0.08565144f, -0.1142401f, 0);
+			StartCoroutine ("stopAttack");
+			timeAttack = 0.4f;
+		} 
+	}
 	void AttackSword (){
 		if (tocaChao && AnimaCombo == 0) {
 			attackcheck.SetActive (true);
@@ -182,6 +201,9 @@ public class PlayerController : MonoBehaviour {
 		}
 		if (!tocaChao && AnimaCombo == 0) {
 			attackcheck.SetActive (true);
+			
+			attackcol.size = new Vector3 (0.6114954f, 0.7895675f, 0);
+			attackcol.offset = new Vector3 (0.1630824f, 0.02957559f, 0);
 			anim.SetTrigger ("AirAttack1");
 			StartCoroutine ("stopAttack");
 			timeAttack = 0.7f;
@@ -214,8 +236,8 @@ public class PlayerController : MonoBehaviour {
 				Restart = true;
 				Update ();
 			}
-			jump = false;
-			anim.SetTrigger ("Stand Hand");
+			//jump = false;
+			//anim.SetTrigger ("Stand Hand");
 			Update ();
 		}
 		if (other.gameObject.CompareTag ("Fase1")) {
