@@ -188,6 +188,15 @@ public class PlayerController : MonoBehaviour {
 			attackcol.offset = new Vector3 (0.08565144f, -0.1142401f, 0);
 			StartCoroutine ("stopAttack");
 			timeAttack = 0.4f;
+		}
+		if (!tocaChao && AnimaCombo == 0) {
+			attackcheck.SetActive (true);
+			
+			attackcol.size = new Vector3 (0.2271488f, 0.2176008f, 0);
+			attackcol.offset = new Vector3 (-0.1098354f, -0.473341f, 0);
+			anim.SetTrigger ("AirKick1");
+			StartCoroutine ("stopAttack");
+			timeAttack = 0.4f;
 		} 
 	}
 	void AttackSword (){
@@ -197,7 +206,7 @@ public class PlayerController : MonoBehaviour {
 			attackcol.offset = new Vector3 (0.1630824f, 0.0328362f, 0);
 			anim.SetTrigger ("Sword1");
 			StartCoroutine ("stopAttack");
-			timeAttack = 0.7f;
+			timeAttack = 0.4f;
 		}
 		if (!tocaChao && AnimaCombo == 0) {
 			attackcheck.SetActive (true);
@@ -206,7 +215,7 @@ public class PlayerController : MonoBehaviour {
 			attackcol.offset = new Vector3 (0.1630824f, 0.02957559f, 0);
 			anim.SetTrigger ("AirAttack1");
 			StartCoroutine ("stopAttack");
-			timeAttack = 0.7f;
+			timeAttack = 0.4f;
 		}
 	}
 	IEnumerator stopAttack(){
