@@ -1211,27 +1211,27 @@ Prefab:
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 09f626dd7ddb7ff48afb2f285034687a,
+      objectReference: {fileID: 21300000, guid: 249195eb5dc956744a4f208380a983f3,
         type: 3}
     - target: {fileID: 61402463020417626, guid: 9fe687b0db456f145b86adb87f5fdd90,
         type: 2}
       propertyPath: m_Offset.y
-      value: -0.11424005
+      value: -0.473341
       objectReference: {fileID: 0}
     - target: {fileID: 61402463020417626, guid: 9fe687b0db456f145b86adb87f5fdd90,
         type: 2}
       propertyPath: m_Size.y
-      value: 0.30684495
+      value: 0.21760082
       objectReference: {fileID: 0}
     - target: {fileID: 61402463020417626, guid: 9fe687b0db456f145b86adb87f5fdd90,
         type: 2}
       propertyPath: m_Offset.x
-      value: 0.08565144
+      value: -0.109835446
       objectReference: {fileID: 0}
     - target: {fileID: 61402463020417626, guid: 9fe687b0db456f145b86adb87f5fdd90,
         type: 2}
       propertyPath: m_Size.x
-      value: 0.45663342
+      value: 0.22714877
       objectReference: {fileID: 0}
     - target: {fileID: 82355737957779466, guid: 9fe687b0db456f145b86adb87f5fdd90,
         type: 2}

@@ -11,11 +11,11 @@ public class PlayerController : MonoBehaviour {
 	public Transform posPe, WallCheck, AttackCheck;
 	public LayerMask Ground, EnemyLayer;
 	[HideInInspector] public bool touchWall = false, tocaChao = false, viradoDireita = true;
-	public float ForcaPulo = 1000f,  Velocidade, slideSpeed = 5f, timeAttack;
-	public bool jump = true,  SideCheck, isSlide = false, isAlive = true;
+	public float ForcaPulo = 1000f,  Velocidade, slideSpeed = 5f;
+	public bool jump = true,  SideCheck, isSlide = false, isAlive = true, atacando,atacando1 = false, atacando2 = false;
 	public BoxCollider2D bc, slidecol,attackcol;
 	public WaitForSeconds attacktime;
-	public int AnimaCombo = 0, Health;
+	public int Health, combo, combo1 = 2, combo2 = 6;
 	public AudioClip audiojump;
 	public AudioClip audiohurt;
 	public AudioClip audioattack;
@@ -34,6 +34,10 @@ public class PlayerController : MonoBehaviour {
 		source = GetComponent<AudioSource> ();
 		slidecol.enabled = false;
 		attackcheck.SetActive (false);
+		combo1 = 2;
+		atacando1 = false;
+		combo2 = 6;
+		atacando2 = false;
 	}
 	void Update () {
 		//The groundcheck
@@ -61,17 +65,23 @@ public class PlayerController : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.LeftShift)) {
 			Doslide ();
 		}
-		if (Input.GetKeyDown (KeyCode.U) && timeAttack <= 0) {
+		if (Input.GetKeyDown (KeyCode.U) && !atacando2 ) {
 				AttackSword ();
 			source.PlayOneShot (audioattack);
 			}
-		if (Input.GetKeyDown (KeyCode.J)&& timeAttack <= 0) {
+		if (Input.GetKeyDown (KeyCode.J)&& !atacando1) {
 				AttackHand ();
 			}
-		if (Input.GetKeyDown (KeyCode.K)&& timeAttack <= 0) {
+		if (Input.GetKeyDown (KeyCode.K) && !atacando) {
 				AttackKick ();
+				
 			}
-		timeAttack -= Time.deltaTime;
+			
+				//timeAttack -= Time.deltaTime;
+			
+		
+		
+
 	}
 	void FixedUpdate()
 	{
@@ -172,50 +182,89 @@ public class PlayerController : MonoBehaviour {
 		}
 	void AttackHand(){
 		if (tocaChao ) {
-			anim.SetTrigger ("Punch1");
+			//anim.SetTrigger ("Punch1");
+			atacando1 =true;
+			anim.SetTrigger (""+combo1);
 			attackcheck.SetActive (true);
 			attackcol.size = new Vector3 (0.5211939f, 0.2611685f, 0);
 			attackcol.offset = new Vector3 (0.1179317f, -0.2626958f, 0);
 			StartCoroutine ("stopAttack");
-			timeAttack = 0.4f;
+			//timeAttack = 0.4f;
 		} 
 	}
 	void AttackKick(){
 		if (tocaChao ) {
-			anim.SetTrigger ("Kick1");
+			atacando =true;
+			anim.SetTrigger (""+combo);
 			attackcheck.SetActive (true);
 			attackcol.size = new Vector3 (0.4566334f,0.3068449f, 0);
 			attackcol.offset = new Vector3 (0.08565144f, -0.1142401f, 0);
 			StartCoroutine ("stopAttack");
-			timeAttack = 0.4f;
+			//timeAttack = 0.4f;
+			
 		}
-		if (!tocaChao && AnimaCombo == 0) {
+	
+		
+		if (!tocaChao) {
+			
 			attackcheck.SetActive (true);
 			
 			attackcol.size = new Vector3 (0.2271488f, 0.2176008f, 0);
 			attackcol.offset = new Vector3 (-0.1098354f, -0.473341f, 0);
 			anim.SetTrigger ("AirKick1");
 			StartCoroutine ("stopAttack");
-			timeAttack = 0.4f;
+			//timeAttack = 0.4f;
 		} 
 	}
+	public void StartCombo(){
+		atacando = false;
+		if(combo<2){
+			combo++;
+		}
+	}
+	public void FinishAnim(){
+		atacando = false;
+		combo = 0;
+	}
+	public void StartCombo1(){
+		atacando1 = false;
+		if(combo1<5){
+			combo1++;
+		}
+	}
+	public void FinishAnim1(){
+		atacando1 = false;
+		combo1 = 2;
+	}
+	public void StartCombo2(){
+		atacando2 = false;
+		if(combo2<8){
+			combo2++;
+		}
+	}
+	public void FinishAnim2(){
+		atacando2 = false;
+		combo2 = 6;
+	}
 	void AttackSword (){
-		if (tocaChao && AnimaCombo == 0) {
+		if (tocaChao ) {
 			attackcheck.SetActive (true);
+			atacando2 =true;
+			anim.SetTrigger (""+combo2);
 			attackcol.size = new Vector3 (0.6114954f, 1.213438f, 0);
 			attackcol.offset = new Vector3 (0.1630824f, 0.0328362f, 0);
-			anim.SetTrigger ("Sword1");
+			//anim.SetTrigger ("Sword1");
 			StartCoroutine ("stopAttack");
-			timeAttack = 0.4f;
+			//timeAttack = 0.4f;
 		}
-		if (!tocaChao && AnimaCombo == 0) {
+		if (!tocaChao ) {
 			attackcheck.SetActive (true);
 			
 			attackcol.size = new Vector3 (0.6114954f, 0.7895675f, 0);
 			attackcol.offset = new Vector3 (0.1630824f, 0.02957559f, 0);
 			anim.SetTrigger ("AirAttack1");
 			StartCoroutine ("stopAttack");
-			timeAttack = 0.4f;
+			//timeAttack = 0.4f;
 		}
 	}
 	IEnumerator stopAttack(){
